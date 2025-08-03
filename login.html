@@ -1,224 +1,203 @@
-<!-- ======================================================================= -->
-<!-- FILE: login.html -->
-<!-- ======================================================================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Equitas Bank</title>
+    <title>Equitas Bank Login</title>
+    
+    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
+        /* Equitas Bank Primary Color */
         .bg-equitas-purple {
-            background-color: #4D267A;
-        }
-        .bg-equitas-purple-light {
-            background-color: #A486C2;
-        }
-        .hover\:bg-equitas-purple-dark:hover {
-            background-color: #3E1F62;
-        }
-        .focus\:ring-purple-600:focus {
-            --tw-ring-color: #4D267A;
+            background-color: #6a2c70;
         }
         .text-equitas-purple {
-            color: #4D267A;
+            color: #6a2c70;
         }
-        @keyframes blink {
-            50% {
-                opacity: 0.2;
-            }
+        .border-equitas-purple {
+            border-color: #6a2c70;
         }
-        .animate-blink {
-            animation: blink 2.5s linear infinite;
+        .ring-equitas-purple:focus {
+            --tw-ring-color: #6a2c70;
+        }
+        /* Background pattern for visual appeal */
+        .login-container {
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+        /* Styles for disabled button */
+        .btn-disabled {
+            background-color: #9a7a9d;
+            cursor: not-allowed;
         }
     </style>
 </head>
-<body class="bg-equitas-purple">
+<body class="bg-gray-100">
 
-    <div class="flex min-h-screen items-center justify-center p-4">
-        <div class="w-full max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-2 items-center gap-16">
+    <div class="min-h-screen flex items-center justify-center p-4 login-container">
+        <div class="w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+            
+            <!-- Left Side: Branding and Welcome Message -->
+            <div class="w-full md:w-1/2 bg-equitas-purple text-white p-8 md:p-12 flex flex-col justify-center items-center text-center">
+                <!-- Real-time logo fetched directly from the official Equitas Bank website -->
+                <img src="https://www.equitasbank.com/sites/default/files/logo_0.png" alt="Equitas Small Finance Bank Logo" class="w-48 mb-6 bg-white p-3 rounded-md" onerror="this.onerror=null;this.src='https://placehold.co/192x64/ffffff/6a2c70?text=Equitas+Logo';">
+                <h1 class="text-3xl font-bold mb-2">Welcome Back!</h1>
+                <p class="text-lg text-gray-200">Experience seamless and secure banking.</p>
+                <div class="mt-8 border-t border-gray-400 pt-6 w-full">
+                    <h2 class="text-xl font-semibold mb-3">Security Tips</h2>
+                    <ul class="text-sm text-left list-disc list-inside space-y-2">
+                        <li>Never share your User ID, Password, or OTP with anyone.</li>
+                        <li>Always log out after completing your transactions.</li>
+                        <li>Use the virtual keyboard for added security.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Side: Login Form -->
+            <div class="w-full md:w-1/2 p-8 md:p-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Internet Banking</h2>
+                <p class="text-gray-500 mb-8">Please enter your credentials to log in.</p>
                 
-                <!-- Left Column: Login Form -->
-                <div class="w-full max-w-md mx-auto">
-                    <!-- Header -->
-                    <div class="mb-8 text-center lg:text-left">
-                        <svg class="mx-auto lg:mx-0 h-16 w-auto" viewBox="0 0 450 100" xmlns="http://www.w3.org/2000/svg">
-                            <img src="https://i.postimg.cc/rFJSTYwg/download.png">
-                            <text x="120" y="70" font-family="Inter, sans-serif" font-size="50" font-weight="bold" fill="#4D267A">equitas</text>
-                        </svg>
-                        <p class="mt-6 text-4xl font-bold text-equitas-purple animate-blink">WELCOME!</p>
-                        <p class="mt-2 text-lg font-medium text-equitas-purple animate-blink">EQUITAS Internet Banking</p>
-                        <h2 class="mt-4 text-xl font-semibold tracking-tight text-equitas-purple">
-                            Sign in to your account
-                        </h2>
+                <form id="loginForm" class="space-y-6">
+                    <!-- User ID Input is now editable -->
+                    <div>
+                        <label for="userId" class="block text-sm font-medium text-gray-700 mb-1">User ID / Customer ID</label>
+                        <input type="text" id="userId" name="userId" placeholder="Enter your User ID" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 ring-equitas-purple transition">
+                    </div>
+                    
+                    <!-- Password Input -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 ring-equitas-purple transition">
                     </div>
 
-                    <!-- Login Form Card -->
-                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-200">
-                        <form id="login-form" class="space-y-6" novalidate>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-4">
-                                <div>
-                                    <label for="email" class="block text-sm font-medium leading-6 text-slate-900">User ID</label>
-                                    <div class="mt-2">
-                                        <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-2.5 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6 transition">
-                                    </div>
-                                    <p id="email-error" class="mt-2 text-sm text-red-600 hidden"></p>
-                                </div>
-                                <div class="mt-6 sm:mt-0">
-                                    <div class="flex items-center justify-between">
-                                        <label for="password" class="block text-sm font-medium leading-6 text-slate-900">Password</label>
-                                    </div>
-                                    <div class="mt-2">
-                                        <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-2.5 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6 transition">
-                                    </div>
-                                     <p id="password-error" class="mt-2 text-sm text-red-600 hidden"></p>
-                                </div>
+                    <!-- Security Captcha (Example) -->
+                     <div>
+                        <label for="captcha" class="block text-sm font-medium text-gray-700 mb-1">Enter the text as shown</label>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-32 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <span class="text-2xl font-bold text-gray-600 tracking-widest italic" style="text-decoration: line-through;">aB3xZ</span>
                             </div>
-                            
-                            <div class="text-sm text-right -mt-4">
-                                <a href="#" class="font-semibold text-equitas-purple hover:underline">Forgot password?</a>
-                            </div>
-                            <div>
-                                <div class="flex items-center">
-                                    <input id="robot-checkbox" name="robot-checkbox" type="checkbox" required class="h-4 w-4 rounded border-slate-300 text-equitas-purple focus:ring-purple-600">
-                                    <label for="robot-checkbox" class="ml-3 block text-sm font-medium leading-6 text-slate-900">I am not a robot</label>
-                                    <span id="verified-status" class="ml-2 flex items-center text-green-600 font-medium hidden">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                        </svg>
-                                        Verified
-                                    </span>
-                                </div>
-                                 <p id="captcha-error" class="mt-2 text-sm text-red-600 hidden"></p>
-                            </div>
-                            
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-slate-300 text-equitas-purple focus:ring-purple-600">
-                                    <label for="remember-me" class="ml-3 block text-sm leading-6 text-slate-900">Remember me</label>
-                                </div>
-                            </div>
-                            <div>
-                                <button id="submit-button" type="submit" class="flex w-full justify-center items-center rounded-md bg-equitas-purple px-3 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-equitas-purple-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600 transition">
-                                    <span id="button-text">Sign in</span>
-                                </button>
-                            </div>
-                        </form>
+                            <input type="text" id="captcha" name="captcha" class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 ring-equitas-purple transition">
+                        </div>
                     </div>
+                    
+                    <!-- Login Button -->
+                    <div>
+                        <button type="submit" id="loginButton" class="w-full bg-equitas-purple text-white font-bold py-3 px-4 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center justify-center">
+                            LOGIN
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Helper Links -->
+                <div class="mt-6 text-center">
+                    <a href="#" class="text-sm font-medium text-equitas-purple hover:underline">Forgot Password?</a>
+                    <span class="mx-2 text-gray-400">|</span>
+                    <a href="#" class="text-sm font-medium text-equitas-purple hover:underline">New User Registration</a>
                 </div>
-
-                <!-- Right Column: Help Section -->
-                <div class="hidden lg:flex lg:flex-col space-y-3 items-start">
-                    <p class="text-sm font-semibold text-black mb-2">> need help?</p>
-                    <a href="tel:18001031222" class="w-full text-left text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 p-3 rounded-lg transition border border-slate-200">
-                        customer care 1800 103 1222
-                    </a>
-                    <a href="#" class="w-full text-left text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 p-3 rounded-lg transition border border-slate-200">
-                        Registration Help
-                    </a>
-                    <a href="mailto:customerservice@equitasbank.com" class="w-full text-left text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 p-3 rounded-lg transition border border-slate-200">
-                        Email Us
-                    </a>
-                    <a href="#" class="w-full text-left text-sm font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 p-3 rounded-lg transition border border-slate-200">
-                        FAQs
-                    </a>
-                </div>
-
             </div>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginForm = document.getElementById('login-form');
-            const emailInput = document.getElementById('email');
-            const emailError = document.getElementById('email-error');
-            const passwordInput = document.getElementById('password');
-            const passwordError = document.getElementById('password-error');
-            const robotCheckbox = document.getElementById('robot-checkbox');
-            const captchaError = document.getElementById('captcha-error');
-            const verifiedStatus = document.getElementById('verified-status');
-            const submitButton = document.getElementById('submit-button');
-            const buttonText = document.getElementById('button-text');
-            
-            let passwordAttempts = 3;
+        // --- Login Logic ---
+        const loginForm = document.getElementById('loginForm');
+        const userIdInput = document.getElementById('userId');
+        const passwordInput = document.getElementById('password');
+        const loginButton = document.getElementById('loginButton');
 
-            robotCheckbox.addEventListener('change', function() {
-                if (this.checked) {
-                    verifiedStatus.classList.remove('hidden');
-                    captchaError.classList.add('hidden');
-                } else {
-                    verifiedStatus.classList.add('hidden');
-                }
-            });
+        // Correct credentials
+        const CORRECT_USER_ID = '2404900112';
+        const CORRECT_PASSWORD = 'oscar22';
 
-            loginForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                emailError.classList.add('hidden');
-                passwordError.classList.add('hidden');
-                captchaError.classList.add('hidden');
+        // Attempt tracker
+        let loginAttempts = 0;
+        const MAX_ATTEMPTS = 2;
 
-                const emailValue = emailInput.value.trim();
-                const passwordValue = passwordInput.value;
-                let isFormValid = true;
+        // Function to display messages to the user
+        function showMessage(message, type = 'error') {
+            const existingMessage = document.querySelector('.message-box');
+            if (existingMessage) existingMessage.remove();
 
-                if (emailValue !== 'madhan.kumar@gmail.com') {
-                    emailError.textContent = 'Invalid User ID';
-                    emailError.classList.remove('hidden');
-                    isFormValid = false;
-                }
+            const messageBox = document.createElement('div');
+            messageBox.textContent = message;
+            let backgroundColor = type === 'success' ? '#28a745' : type === 'warning' ? '#ffc107' : '#dc3545';
+            messageBox.className = 'message-box';
+            messageBox.style.cssText = `position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: ${backgroundColor}; color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; font-size: 16px; transition: opacity 0.5s;`;
+            document.body.appendChild(messageBox);
+
+            setTimeout(() => {
+                messageBox.style.opacity = '0';
+                setTimeout(() => document.body.removeChild(messageBox), 500);
+            }, 4000);
+        }
+
+        // Form submission handler
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const enteredUserId = userIdInput.value;
+            const enteredPassword = passwordInput.value;
+
+            if (loginAttempts >= MAX_ATTEMPTS) {
+                showMessage('Account locked due to too many failed attempts. Please try again later.', 'error');
+                return;
+            }
+
+            if (enteredUserId !== CORRECT_USER_ID) {
+                showMessage('Invalid ID', 'error');
+                passwordInput.value = '';
+                userIdInput.focus();
+                return;
+            }
+
+            if (enteredPassword === CORRECT_PASSWORD) {
+                // --- Successful Login ---
+                loginButton.disabled = true;
+                loginButton.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Signing in...`;
                 
-                if (passwordValue !== 'admin123') {
-                    isFormValid = false;
-                    passwordAttempts--;
-                    if (passwordAttempts > 0) {
-                        passwordError.textContent = `Invalid Password. ${passwordAttempts} ${passwordAttempts === 1 ? 'attempt' : 'attempts'} left.`;
-                        passwordError.classList.remove('hidden');
-                    } else {
-                        passwordError.textContent = 'Too many incorrect attempts. Account locked.';
-                        passwordError.classList.remove('hidden');
-                        passwordInput.disabled = true;
-                        submitButton.disabled = true;
-                        submitButton.classList.add('opacity-50', 'cursor-not-allowed');
-                    }
-                }
+                showMessage('Login Successful! Redirecting...', 'success');
+                loginAttempts = 0;
 
-                if (!robotCheckbox.checked) {
-                    captchaError.textContent = 'Please check the box to confirm human';
-                    captchaError.classList.remove('hidden');
-                    isFormValid = false;
-                }
+                // Wait 2 seconds then redirect to the bank account page
+                setTimeout(() => {
+                    window.location.href = 'bank-account-page.html';
+                }, 2000);
 
-                if (isFormValid) {
-                    submitButton.disabled = true;
-                    submitButton.classList.remove('bg-equitas-purple', 'hover:bg-equitas-purple-dark');
-                    submitButton.classList.add('bg-equitas-purple-light', 'cursor-wait');
-                    buttonText.innerHTML = `
-                        <div class="flex items-center justify-center">
-                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            Signing in...
-                        </div>
-                    `;
-                    setTimeout(() => {
-                        window.location.href = 'bank-account-page.html';
-                    }, 1500);
+            } else {
+                // --- Incorrect Password ---
+                loginAttempts++;
+                const remainingAttempts = MAX_ATTEMPTS - loginAttempts;
+
+                if (remainingAttempts > 0) {
+                    showMessage(`Wrong password. You have ${remainingAttempts} attempt(s) remaining.`, 'warning');
+                } else {
+                    showMessage('Wrong password. Your account is now locked.', 'error');
+                    loginButton.disabled = true;
+                    loginButton.classList.add('btn-disabled');
+                    loginButton.innerHTML = 'LOGIN';
                 }
-            });
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
         });
     </script>
 
 </body>
 </html>
-
-
-
-
