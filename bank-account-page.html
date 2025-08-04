@@ -67,7 +67,7 @@
                                 <ul class="p-2 max-h-80 overflow-y-auto">
                                     <li class="p-2 border-b border-slate-100">
                                         <p class="text-sm text-green-600 font-semibold">Credit: +₹2,91,000.00</p>
-                                        <p class="text-xs text-slate-500">Salary credit received.</p>
+                                        <p class="text-xs text-slate-500">IMPS transfer from Vignesh Enterprises.</p>
                                     </li>
                                     <li class="p-2 border-b border-slate-100">
                                         <p class="text-sm text-red-600 font-semibold">Debit: -₹45,000.00</p>
@@ -207,7 +207,7 @@
                 // 2. Manage Transaction History
                 let transactions = JSON.parse(localStorage.getItem('transactionHistory')) || [
                     // Default transactions if none exist
-                    { name: 'RAVPREET SINGH', details: 'IMPS / P2A / T25080222490', amount: -350000.00, date: '2025-08-05T12:00:00.000Z' },
+                    { name: 'RAVPREET SINGH', details: 'IMPS / P2P / T25080222490', amount: -350000.00, date: '2025-08-05T12:00:00.000Z' },
                     { name: 'Star Enterprises', details: 'IMPS / P2A / T25080215301', amount: -45000.00, date: '2025-08-02T11:00:00.000Z' },
                     { name: 'Zomato Order', details: 'Zomato / P2M / T25080211350', amount: -550.00, date: '2025-08-02T10:00:00.000Z' },
                     { name: 'Salary Credit', details: 'NEFT / P2A / T25080109302', amount: 291000.00, date: '2025-08-01T09:00:00.000Z' },
@@ -330,6 +330,7 @@
 </body>
 
 </html>
+
 
 
 
