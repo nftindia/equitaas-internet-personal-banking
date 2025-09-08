@@ -49,7 +49,7 @@
                 </div>
                 <div class="flex-1 flex justify-end">
                     <div class="flex items-center space-x-2 sm:space-x-4">
-                        <span class="hidden sm:block text-sm font-medium text-slate-600">Vinothkumar</span>
+                        <span class="hidden sm:block text-sm font-medium text-slate-600">Vishagan</span>
                         <button id="search-button" class="p-2 rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition">
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -67,7 +67,7 @@
                                 <ul class="p-2 max-h-80 overflow-y-auto">
                                     <li class="p-2 border-b border-slate-100">
                                         <p class="text-sm text-green-600 font-semibold">Credit: +₹2,91,000.00</p>
-                                        <p class="text-xs text-slate-500">IMPS transfer from Vignesh Enterprises.</p>
+                                        <p class="text-xs text-slate-500">37 Games</p>
                                     </li>
                                     <li class="p-2 border-b border-slate-100">
                                         <p class="text-sm text-red-600 font-semibold">Debit: -₹45,000.00</p>
@@ -108,7 +108,7 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="mb-8">
-            <h1 class="text-3xl font-bold text-slate-900">Welcome back, Vinothkumar!</h1>
+            <h1 class="text-3xl font-bold text-slate-900">Welcome back, Vishagan!</h1>
             <p class="text-slate-500 mt-1">Here's a summary of your account.</p>
         </div>
 
@@ -116,7 +116,7 @@
             <div class="lg:col-span-1 space-y-8">
                 <div class="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-purple-800">
                     <h2 class="text-sm font-medium text-slate-500">Available Balance</h2>
-                    <p id="balance" class="text-4xl font-bold text-slate-900 mt-2">₹8,84,567.89</p>
+                    <p id="balance" class="text-4xl font-bold text-slate-900 mt-2">₹15,76,274</p>
                     <div class="mt-4 text-sm text-slate-600">
                         <p>Account: <span class="font-medium">**** **** 4321</span></p>
                     </div>
@@ -207,11 +207,11 @@
                 // 2. Manage Transaction History
                 let transactions = JSON.parse(localStorage.getItem('transactionHistory')) || [
                     // Default transactions if none exist
-                    { name: 'RAVPREET SINGH', details: 'IMPS / P2P / EQ1754338098847', amount: -350000.00, date: '2025-08-05T12:00:00.000Z' },
-                    { name: 'Star Enterprises', details: 'IMPS / P2A / EQ1754305213362', amount: -45000.00, date: '2025-08-02T11:00:00.000Z' },
-                    { name: 'Zomato Order', details: 'Zomato / P2M / EQ173205066842', amount: -550.00, date: '2025-08-02T10:00:00.000Z' },
-                    { name: 'Salary Credit', details: 'NEFT / P2A / EQ173111145958', amount: 291000.00, date: '2025-08-01T09:00:00.000Z' },
-                    { name: 'Future Retail Ltd', details: 'NEFT / P2A / EQ170356231990', amount: -53000.00, date: '2025-07-31T15:00:00.000Z' },
+                    { name: 'RAVPREET SINGH', details: 'IMPS / P2P / EQ1754338098847', amount: -350000.00, date: '2025-09-08T12:00:00.000Z' },
+                    { name: 'Star Enterprises', details: 'IMPS / P2A / EQ1754305213362', amount: -45000.00, date: '2025-09-07T11:00:00.000Z' },
+                    { name: 'Zomato Order', details: 'Zomato / P2M / EQ173205066842', amount: -550.00, date: '2025-09-07T10:00:00.000Z' },
+                    { name: '37 Games', details: 'NEFT / P2A / EQ173111145958', amount: 291000.00, date: '2025-09-06T09:00:00.000Z' },
+                    { name: 'Shivamani', details: 'NEFT / P2A / EQ170356231990', amount: -53000.00, date: '2025-07-31T15:00:00.000Z' },
                 ];
 
                 const newTransactionJSON = localStorage.getItem('newTransaction');
@@ -330,6 +330,7 @@
 </body>
 
 </html>
+
 
 
 
