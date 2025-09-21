@@ -1,137 +1,69 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>My Account - Equitas Bank</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
-
         body {
-
             font-family: 'Inter', sans-serif;
-
         }
-
         .text-equitas-purple {
-
             color: #4D267A;
-
         }
-
         .bg-equitas-purple {
-
             background-color: #4D267A;
-
         }
-
         .bg-equitas-purple-lightest {
-
             background-color: #F4F0F8;
-
         }
-
         .hover\:bg-equitas-purple-lighter:hover {
-
             background-color: #E9E0F0;
-
         }
-
     </style>
-
 </head>
-
 <body class="bg-gradient-to-b from-purple-50 to-purple-200">
-
-
-
     <header class="bg-white shadow-sm sticky top-0 z-40">
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
             <div class="flex justify-between items-center h-16">
-
                 <div class="flex-1">
-
                     <div class="flex items-center space-x-2">
-
                         <div class="w-12 h-12 flex flex-col items-center justify-center rounded-lg bg-slate-100 border border-slate-200">
-
                             <div class="text-xs font-bold text-white bg-equitas-purple w-full text-center rounded-t-md py-0.5" id="date-month">AUG</div>
-
                             <div id="date-day" class="text-2xl font-bold text-slate-700">03</div>
-
                         </div>
-
                         <div>
-
                             <p id="date-weekday" class="font-semibold text-slate-700">Sunday</p>
-
                             <p id="time-display" class="text-xs text-slate-500 font-medium">01:25 AM</p>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="flex-1 flex justify-center">
-
                     <svg class="h-16 w-auto" viewBox="0 0 450 100" xmlns="http://www.w3.org/2000/svg">
-
                         <center>
-
 <img src="https://i.postimg.cc/rFJSTYwg/download.png"></center>
-
                     </svg>
-
                 </div>
-
                 <div class="flex-1 flex justify-end">
-
                     <div class="flex items-center space-x-2 sm:space-x-4">
-
                         <span class="hidden sm:block text-sm font-medium text-slate-600">AnandKumar</span>
-
                         <button id="search-button" class="p-2 rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition">
-
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-
                             </svg>
-
                         </button>
-
                         <div class="relative">
-
                             <button id="notification-button" class="p-2 rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition">
-
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-
                                 </svg>
-
                                 <span class="absolute top-1.5 right-1.5 block h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white"></span>
-
                             </button>
-
                             <div id="notification-dropdown" class="hidden absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-slate-200 z-50">
-
                                 <div class="p-4 font-semibold border-b">Notifications</div>
-
                                 <ul class="p-2 max-h-80 overflow-y-auto">
-
                                     <li class="p-2 border-b border-slate-100">
 
                                         <p class="text-sm text-green-600 font-semibold">Credit: +₹2,91,000.00</p>
@@ -421,240 +353,104 @@
                     { name: 'Star Enterprises', details: 'IMPS / P2A / EQ1754305213362', amount: -45000.00, date: '2025-09-17T11:00:00.000Z' },
 
                     { name: 'Zomato Order', details: 'Zomato / P2M / EQ173205066842', amount: -550.00, date: '2025-09-15T10:00:00.000Z' },
-
                     { name: '37 Games', details: 'NEFT / P2A / EQ173111145958', amount: 291000.00, date: '2025-09-06T09:00:00.000Z' },
-
                     { name: 'Shivamani', details: 'NEFT / P2A / EQ170356231990', amount: -53000.00, date: '2025-07-31T15:00:00.000Z' },
-
                 ];
-
-
-
                 const newTransactionJSON = localStorage.getItem('newTransaction');
-
                 if (newTransactionJSON) {
-
                     const newTx = JSON.parse(newTransactionJSON);
-
                     transactions.unshift(newTx); // Add new transaction to the beginning
-
                     localStorage.removeItem('newTransaction');
-
                 }
-
-                
-
-                // Keep only the latest 10 transactions
-
+                                // Keep only the latest 10 transactions
                 if (transactions.length > 10) {
-
                     transactions = transactions.slice(0, 10);
-
-                }
-
-                
-
+                }             
                 localStorage.setItem('transactionHistory', JSON.stringify(transactions));
-
                 renderTransactions(transactions);
-
             }
-
-
-
             function renderTransactions(transactions) {
-
                 transactionList.innerHTML = ''; // Clear the list before rendering
-
                 transactions.forEach(tx => {
-
                     const txDate = new Date(tx.date);
-
                     const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-
                     const amountClass = tx.amount > 0 ? 'text-green-600' : 'text-red-600';
-
                     const amountSign = tx.amount > 0 ? '+' : '';
-
-
-
                     const newTxHTML = `
-
                         <li class="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50">
-
                             <div class="flex items-center">
-
                                 <div class="w-11 h-11 flex flex-col items-center justify-center rounded-lg bg-slate-100 border border-slate-200 mr-4 flex-shrink-0">
-
                                     <div class="text-xs font-bold text-equitas-purple">${months[txDate.getMonth()]}</div>
-
                                     <div class="text-xl font-bold text-slate-700">${txDate.getDate().toString().padStart(2, '0')}</div>
-
                                 </div>
-
                                 <div>
-
                                     <p class="font-medium text-slate-800">${tx.name}</p>
-
                                     <p class="text-xs text-slate-500">${tx.details}</p>
-
                                 </div>
-
                             </div>
-
                             <p class="font-bold ${amountClass}">${amountSign}₹${Math.abs(tx.amount).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-
                         </li>
-
-                    `;
-
                     transactionList.insertAdjacentHTML('beforeend', newTxHTML);
-
                 });
-
             }
-
-
-
             updateDashboard();
-
-
-
             logoutLink.addEventListener('click', function(event) {
-
                 event.preventDefault();
-
                 logoutModal.classList.remove('hidden');
-
             });
-
-
-
             cancelLogoutBtn.addEventListener('click', function() {
-
                 logoutModal.classList.add('hidden');
-
             });
-
-
-
             confirmLogoutBtn.addEventListener('click', function() {
-
                 localStorage.clear(); // Clear all data on logout
-
                 window.location.href = 'login.html';
-
             });
-
-
-
             notificationButton.addEventListener('click', function(event) {
-
                 event.stopPropagation();
-
                 notificationDropdown.classList.toggle('hidden');
-
             });
-
-
-
             window.addEventListener('click', function(event) {
-
                 if (!notificationButton.contains(event.target) && !notificationDropdown.contains(event.target)) {
-
                     notificationDropdown.classList.add('hidden');
-
                 }
-
-            });
-
-            
-
+            });           
             searchButton.addEventListener('click', function() {
-
                 searchBarContainer.classList.toggle('hidden');
-
                 if (!searchBarContainer.classList.contains('hidden')) {
-
                     searchInput.focus();
-
                 }
-
             });
-
-
-
             searchInput.addEventListener('input', function() {
-
                 const filter = searchInput.value.toLowerCase();
-
                 const transactionItems = transactionList.getElementsByTagName('li');
-
                 for (let i = 0; i < transactionItems.length; i++) {
-
                     const item = transactionItems[i];
-
                     const text = item.textContent || item.innerText;
-
                     if (text.toLowerCase().indexOf(filter) > -1) {
-
                         item.style.display = "";
-
                     } else {
-
                         item.style.display = "none";
-
                     }
-
                 }
-
             });
-
-
-
             function updateDateTime() {
-
                 const today = new Date();
-
                 const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
                 const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-
-
-
                 document.getElementById('date-month').textContent = months[today.getMonth()];
-
                 document.getElementById('date-day').textContent = today.getDate().toString().padStart(2, '0');
-
-                document.getElementById('date-weekday').textContent = weekdays[today.getDay()];
-
-                
-
+                document.getElementById('date-weekday').textContent = weekdays[today.getDay()];             
                 const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
-
                 const timeString = today.toLocaleTimeString('en-IN', timeOptions);
-
                 const timeDisplay = document.getElementById('time-display');
-
                 if (timeDisplay) {
-
                     timeDisplay.textContent = timeString;
-
                 }
-
-            }
-           
-
+            }         
             updateDateTime();
-
             setInterval(updateDateTime, 1000);
-
         });
-
     </script>
-
 </body>
-
-
-
 </html> 
+
